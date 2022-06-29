@@ -1,0 +1,12 @@
+<h1>Admin Page</h1>
+<%if current_admin%>
+<h2><%= @admin.email%></h2>
+<%= link_to "Change Password", edit_admin_registration_path%>
+<%= form_with model: @admin do |f|%>
+    <hr>
+    <h2><%= f.label :token %></h2>
+    <h2><%= f.password_field :token %></h2>
+    <hr>
+    <h2><%= f.submit "Update Data"%></h2>
+<%end%>
+<%end%>

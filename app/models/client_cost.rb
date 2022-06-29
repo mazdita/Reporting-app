@@ -1,0 +1,2 @@
+class ClientCost < ApplicationRecord
+end

@@ -1,0 +1,32 @@
+
+<div>
+    <h1>Report for: <%= @report.title%></h1>
+    <h3>By: <%= @report.admin.email%></h3>
+
+    <p>This report was generated at: <%=@report.created_at.strftime("%d-%B-%Y")%></p>
+<hr>
+    <% JSON.parse(@report.job_requests_names).each_with_index do |job, index|%>
+        <h4><%=job%></h4>
+        <h4>Costs: <%=@report.job_requests_costs ? JSON.parse(@report.job_requests_costs)[index] : "NA"%>€</h4>
+    <%end%>
+    <h4>TOTAL COST THIS MONTH: <%= @report.total_cost%>€</h4>
+    
+</div>
+<div class="row">
+    <h2> Comments: </h2>
+        <div class="center">
+            <%= render partial: 'comments/form' %>
+        </div>
+        <br>
+        <% @comments.each do |comment|%>
+            <div class="panel panel-default" id="panels">
+                <div class="panel-body text-center">
+                    <h6 class="panel-subtitle mb-2 text-muted"><%= comment.admin.email %> | <%= comment.created_at %></h6>
+                    <p class="panel-text"><%= comment.content %></p>
+                </div>
+            </div>
+        <%end%>
+         
+</div>
+
+    

@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  client_name: MyString
+  worker_first_name: MyString
+  job_function: MyString
+  start_date: 2022-06-23
+  end_date: 2022-06-23
+  monthly_salary: 9.99
+
+two:
+  client_name: MyString
+  worker_first_name: MyString
+  job_function: MyString
+  start_date: 2022-06-23
+  end_date: 2022-06-23
+  monthly_salary: 9.99

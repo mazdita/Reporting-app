@@ -1,0 +1,19 @@
+
+<%=form_with url: @report do |f|%>
+    <%if @companies_names == ["NA"]%>
+        <%= f.submit "Generate Report",disabled: true%>
+        <%= f.select :company, @companies_names%>
+    <%else%>
+        <%= f.submit "Generate Report"%>
+        <%= f.select :company, @companies_names%>
+    <%end%>
+<%end%>
+<hr>
+<%@reports.each do |report|%>
+    <h4><%= link_to "#{report.title}", report_path(report)%></h4>
+    <small>By: <%=report.admin.email%></small>
+    <br>
+    <br>
+<%end%>
+
+

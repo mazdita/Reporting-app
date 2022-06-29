@@ -1,0 +1,25 @@
+
+<div class="container_nav">
+    <header class="navbar navbar-fixed-top navbar-dark bg-primary">
+        <div class="container">
+            <%= link_to "Marketplace App", root_path, id: "logo" %>
+            <nav>
+            <ul class="nav navbar-nav navbar-right">
+                <li><%= link_to "Home", root_path, class: "nav-link" %></li>
+                <%if !current_admin.nil?  %>
+                    
+                    
+                <%end%>
+                
+                <%if current_admin.nil?%>
+                    <li><%= link_to "Log in", new_admin_session_path, class: "nav-link" %></li>
+                    
+                <%end%>
+                <%if admin_signed_in?%>
+                    <li><%= link_to "Log out", destroy_admin_session_path, method: :delete, class: "nav-link" %></li>
+                <%end%>
+            </ul>
+            </nav>
+        </div>
+    </header>
+</div>

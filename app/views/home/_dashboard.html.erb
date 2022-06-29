@@ -1,0 +1,49 @@
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <%= form_with method: :get do |f|%>
+        <th scope="col"><%= f.submit "Filter"%></th>
+        <th scope="col"><%= f.search_field :client, placeholder: "Client", value: params[:client]%></th>
+        <th scope="col"><%= f.search_field :worker, placeholder: "Worker", value: params[:worker]%></th>
+        <th scope="col"><%= f.search_field :job_function, placeholder: "Function", value: params[:job_function]%></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <%end%>
+        <th scope="col"><%=link_to "Export as CSV",@csv_url, target: :_blank, method: :get%></th>
+    </tr>
+  </thead>
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Client</th>
+      <th scope="col">Worker</th>
+      <th scope="col">Job function</th>
+      <th scope="col">Start date</th>
+      <th scope="col">End date</th>
+      <th scope="col">Monthly Salary</th>
+      <th scope="col">total_vacancies</th>
+      <th scope="col">Market Value</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <% i = 0 %>
+    <% @placements.each do |placement| %>
+      <% i += 1%>
+      <tr>
+      <td><%= i + 1 %></td>
+      <td><%= placement[:client][:name] %></td>
+      <td><%= placement[:worker][:first_name]%> <%=placement[:worker][:last_name]%></td>
+      <td><%= placement[:job_request][:job_function] %></td>
+      <td><%= placement[:start_date] %></td>
+      <td><%= placement[:end_date] %></td>
+      <td><%= placement[:monthly_salary] %></td>
+      <td><%= placement[:job_request][:total_vacancies] %></td>
+      <td><%= placement[:job_request][:total_vacancies] * placement[:monthly_salary]%></td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,46 @@
+<h1>Placements dashboard</h1>
+<% if admin_signed_in?%>
+<%= render 'home/dashboard'%>
+<% else %>
+<div class="container">
+
+ <br>
+ <br>
+
+<div class="row m-6">
+
+<div class="col-md-8">
+
+<div class="card text-white" style="max-width: 70rem;">
+  <div class="card-body">
+    <img src="https://cdn.pixabay.com/photo/2014/07/06/13/55/calculator-385506_960_720.jpg" width=100% alt="Jobs" />
+  </div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card text-white" style="max-width: 70rem;">
+  <br>
+  <br>
+  <br>
+  <h1>Find the best job </h1>
+  <br>
+  <br>
+  <h1><%=  "Log in to see Jobs reports!" %></h1>
+    <br>
+  <br>
+  <br>
+  <br>
+</div>
+</div>
+
+</div>
+
+
+
+
+
+<% end %>
+
+
+
